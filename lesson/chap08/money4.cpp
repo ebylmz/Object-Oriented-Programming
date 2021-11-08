@@ -116,6 +116,7 @@ ostream & operator<< (ostream & outStream, const Money & amount) {
         outStream << "$-";
     else
         outStream << '$';
+    
     outStream << absDollars;
 
     if (absCents >= 10)
