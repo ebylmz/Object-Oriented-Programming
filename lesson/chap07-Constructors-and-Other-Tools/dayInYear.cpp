@@ -9,6 +9,10 @@ public:
     DayInYear (int setMonth);
     DayInYear ();
 
+    // In C++, if a class has a constructor which can be called with a single argument, 
+    // then this constructor becomes conversion constructor because such a constructor 
+    // allows automatic conversion to the class being constructed. 
+
     int setDate (int monthValue, int dayValue);
     int setDay (int dayValue);
     int setMonth (int monthValue);
@@ -21,6 +25,7 @@ public:
     friend istream & operator>> (istream & inStream, DayInYear & date);
     friend ostream & operator<< (ostream & outStream, const DayInYear & date);
     bool operator== (const DayInYear & other) const;
+    //! use operator== if conversion constructor exist 
     bool operator!= (const DayInYear & other) const;
 
 private:
