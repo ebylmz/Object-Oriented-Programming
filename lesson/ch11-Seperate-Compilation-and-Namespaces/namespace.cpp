@@ -1,5 +1,8 @@
 #include <iostream>
 
+// signature of both message() functions are same
+// but this does not cause an error.
+
 namespace Hello {
     void message ();
 }
