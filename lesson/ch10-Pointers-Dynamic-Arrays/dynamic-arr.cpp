@@ -10,6 +10,8 @@ int ** createArr2d (int row, int col);
 void freeArr2d (int ** arr, int row);
 
 
+// nullptr is C++ keyword
+
 int main (void) {
     int size;
     cout << "How many numbers you enter? ";
@@ -23,7 +25,6 @@ int main (void) {
         cin >> a[i];
     }
     cout << "Average of entered numbers: " << getAve(a, size) << endl;
-
     // Free the allocated memory space
     delete [] a;
 }
