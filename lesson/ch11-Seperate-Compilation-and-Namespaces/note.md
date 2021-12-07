@@ -29,6 +29,9 @@ a using directive because you are always using the global namespace.
 
 * Namespaces should be unique like your last name, institiuon name... (DayOfYearEBY)
 
+* Namespace groping is parting the namespace and compining in compilation unit
+for exp. header file contains the decleration and implementation file contains definitions both of are under the same namespace   
+
 * using decleration
     using std::cout; // like variable decleration
  using directive
@@ -56,3 +59,5 @@ Displays 11.8 and 11.9 .)
 * We use unnamed namespace to keep the names local in current compilation unit, by doing this the related functions only available in current compilation unit. Outside of the compilation unit these definitions wont be available. So we can use same name in different compilation unit. Like global function but not exactly. Encapsulation principle is applied.
 
 * The number of unnamed namepace is same as the file which will be compiled or the number of compilation unit.
+
+* Don't put unnamed namespace in header file (*.h), because when *.h included in *.cpp the code you put in *.h in unnmaed namesapce will become part of unnamed namepspace (*.cpp unnamed namespace extented) of the *.cpp which includes *.h
