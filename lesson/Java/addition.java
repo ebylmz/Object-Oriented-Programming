@@ -1,16 +1,16 @@
 import java.util.Scanner;
 // no header file, no include statement
-// javadoc use for creating header file as *.html or *.pdf
+// javadoc used for creating header file as *.html or *.pdf
 
 public class addition {
     public static void main (String args[]) {
-        //! In java any object cannot be created on stack
-        //! Each object created on heap with operator new
-        //! there is no operator delete
-        //! there is a Garbage Collector and it handles all the memory issues 
-        //! Money m1; // this is a reference
+        // In java none of object can be created on stack
+        // Each object created on heap with operator new
+        // there is no operator delete
+        // there is a Garbage Collector and it handles all the memory issues 
+        // Money m1; // this is a reference
         Scanner input = new Scanner(System.in);
-
+        
         int n1, n2;
 
         System.out.print("Enter first integer: ");
@@ -20,5 +20,6 @@ public class addition {
         n2 = input.nextInt();
 
         System.out.printf("Sum is %d\n", n1 + n2);
+        input.close();
     }
 }
