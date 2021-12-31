@@ -1,4 +1,4 @@
-package Employee;
+package inheritance.Employee;
 
 public class BasePlusCommissionEmployee extends CommissionEmployee {
     private double _baseSalary;
@@ -15,6 +15,7 @@ public class BasePlusCommissionEmployee extends CommissionEmployee {
     public double earnings () {return super.earnings() + baseSalary();}
 
     public String toString () {
-        return  super.toString() + String.format("base salary: %.2f", _baseSalary);
+        return String.format("%s %s; %s: $%,.2f", 
+            "base-salalied", super.toString(), "base salary", baseSalary());
     } 
 }

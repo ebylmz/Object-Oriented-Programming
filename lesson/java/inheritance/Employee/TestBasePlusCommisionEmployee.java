@@ -1,4 +1,4 @@
-package Employee;
+package inheritance.Employee;
 
 public class TestBasePlusCommisionEmployee {
     public static void main (String args[]) {
