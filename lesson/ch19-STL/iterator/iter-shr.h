@@ -1,6 +1,11 @@
 //-------------------------------------------------------------------
 // Raw iterator with random access
 //-------------------------------------------------------------------
+#include <iostream>
+#include <memory>
+
+using std::shared_ptr;
+
 template<typename DataType>
 class RawIterator {
 public:
@@ -22,8 +27,10 @@ public:
     bool operator== (const RawIterator<DataType>& rawIterator) const {return (_ptr == rawIterator.getConstPtr());}
     bool operator!= (const RawIterator<DataType>& rawIterator) const {return (_ptr != rawIterator.getConstPtr());}
 
+/*
     RawIterator<DataType> & operator+= (const difference_type& movement) {_ptr += movement; return (*this);}
     RawIterator<DataType> & operator-= (const difference_type& movement) {_ptr -= movement; return (*this);}
+*/
     RawIterator<DataType> & operator++ () {++_ptr; return (*this);}
     RawIterator<DataType> & operator-- () {--_ptr; return (*this);}
     RawIterator<DataType> operator++ (int) {auto temp(*this); ++_ptr; return temp;}
@@ -37,8 +44,8 @@ public:
     const DataType& operator* () const {return *_ptr;}
     DataType* operator-> () {return _ptr;}   //! NOT SURE
 
-    DataType* getPtr() const {return _ptr;}
-    const DataType* getConstPtr() const {return _ptr;}
+    DataType* getPtr () const {return _ptr;}
+    const DataType* getConstPtr () const {return _ptr;}
 
 protected:
 
@@ -61,24 +68,27 @@ public:
 
 public:
 
-    RawReverseIterator (DataType* ptr = nullptr) : RawIterator<DataType>(ptr) {}
+    RawReverseIterator (DataType * ptr = nullptr) : RawIterator<DataType>(ptr) {}
     RawReverseIterator (const RawIterator<DataType> & rawIterator) : RawIterator<DataType>(rawIterator.getPtr) {}
 
     RawReverseIterator<DataType> & operator= (const RawIterator<DataType>& rawIterator){this->_ptr = rawIterator.getPtr();return (*this);}
     RawReverseIterator<DataType> & operator= (DataType * ptr) {this->_ptr = ptr; return (*this);}
-
+/*
     RawReverseIterator<DataType> & operator+= (const difference_type & movement) {this->_ptr -= movement; return (*this);}
     RawReverseIterator<DataType> & operator-= (const difference_type & movement) {this->_ptr += movement; return (*this);}
+*/
     RawReverseIterator<DataType> & operator++ () {--this->_ptr; return (*this);}
     RawReverseIterator<DataType> & operator-- () {++this->_ptr; return (*this);}
     RawReverseIterator<DataType> operator++ (int) {auto temp(*this); --this->_ptr; return temp;}
     RawReverseIterator<DataType> operator-- (int) {auto temp(*this); ++this->_ptr; return temp;}
+/*
     RawReverseIterator<DataType> operator+ (const int& movement) {return RawReverseIterator(this->_ptr - movement);}
     RawReverseIterator<DataType> operator- (const int& movement) {return RawReverseIterator(this->_ptr + movement);}
 
     difference_type operator- (const RawReverseIterator<DataType> & other){return std::distance(this->getPtr(), other.getPtr());}
 
     RawIterator<DataType> base(){RawIterator<DataType> forwardIterator(this->_ptr); ++forwardIterator; return forwardIterator;}
+*/
 };
 //-------------------------------------------------------------------
 
@@ -89,8 +99,8 @@ public: // The typedefs
     typedef RawIterator<T>              iterator;
     typedef RawIterator<const T>        const_iterator;
 
-    typedef RawReverseIterator<T>       reverse_iterator;
-    typedef RawReverseIterator<const T> const_reverse_iterator;
+    // typedef RawReverseIterator<T>       reverse_iterator;
+    // typedef RawReverseIterator<const T> const_reverse_iterator;
 
 public:  
 
@@ -98,17 +108,19 @@ public:
     : _size(0), _capacity(capacity <= 0 ? 0 : capacity), _mdata(new T[_capacity]) {}
 
     // The begin/end functions
-    iterator begin () {return iterator(_mdata);}
-    iterator end () {return iterator(_mdata + _size);}
+    iterator begin () {return iterator(_mdata.get());}
+    iterator end () {return iterator(_mdata.get() + _size);}
 
-    const_iterator cbegin () {return const_iterator(_mdata);}
-    const_iterator cend () {return const_iterator(_mdata + _size);}
+    const_iterator cbegin () {return const_iterator(_mdata.get());}
+    const_iterator cend () {return const_iterator(_mdata.get() + _size);}
 
-    reverse_iterator rbegin () {return reverse_iterator(_mdata + _size - 1);}
-    reverse_iterator rend () {return reverse_iterator(_mdata - 1);}
+/*
+    reverse_iterator rbegin () {return reverse_iterator(_mdata.get() + _size - 1);}
+    reverse_iterator rend () {return reverse_iterator(_mdata.get() - 1);}
 
-    const_reverse_iterator crbegin () {return const_reverse_iterator(_mdata + _size - 1);}
-    const_reverse_iterator crend () {return const_reverse_iterator(_mdata - 1);}
+    const_reverse_iterator crbegin () {return const_reverse_iterator(_mdata.get() + _size - 1);}
+    const_reverse_iterator crend () {return const_reverse_iterator(_mdata.get() - 1);}
+*/
 
     size_t size () {return _size;}
     size_t capacity () {return _capacity;}
@@ -128,13 +140,11 @@ public:
     void reserve (size_t newcapacity) {
         _capacity = (newcapacity <= 0) ? 0 : newcapacity;
         _size = (_capacity < _size) ? _capacity : _size;
-        T * tmp = _mdata;
-        _mdata = new T[capacity()];
-
-        if (tmp != nullptr) {
+        shared_ptr<T[]> tmp(_mdata);
+        _mdata.reset(new T[capacity()]);
+        if (tmp.get() != nullptr) {
             for (int i = 0; i < size(); ++i)
                 _mdata[i] = tmp[i];
-            delete tmp;
         } 
     }
     
@@ -142,5 +152,5 @@ protected:
 
     size_t _size;
     size_t _capacity;
-    T * _mdata;   // data in memory
+    shared_ptr<T[]> _mdata;   // data in memory
 };
