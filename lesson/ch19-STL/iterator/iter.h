@@ -33,12 +33,12 @@ public:
 
     difference_type operator-(const RawIterator<DataType>& other){return std::distance(other.getPtr(),this->getPtr());}
 
-    DataType& operator* () {return *_ptr;}
-    const DataType& operator* () const {return *_ptr;}
-    DataType* operator-> () {return _ptr;}   //! NOT SURE
+    DataType & operator* () {return *_ptr;}
+    const DataType & operator* () const {return *_ptr;}
+    DataType * operator-> () {return _ptr;}   //! NOT SURE
 
-    DataType* getPtr() const {return _ptr;}
-    const DataType* getConstPtr() const {return _ptr;}
+    DataType * getPtr () const {return _ptr;}
+    const DataType * getConstPtr () const {return _ptr;}
 
 protected:
 
