@@ -32,5 +32,7 @@ public class DivideByZeroWithExceptionHandling {
                 System.out.println("Zero is an invalid denominator. Please try again.\n");
             }
         } while (!exit);
+
+        scanner.close();
     }     
 }
