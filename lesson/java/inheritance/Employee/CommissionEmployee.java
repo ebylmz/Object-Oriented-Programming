@@ -4,7 +4,7 @@ public class CommissionEmployee extends Employee {
     protected double _grossSales;
     protected double _commissionRate;
 
-    CommissionEmployee (String fname, String lname, String ssn, double sales, double rate) {
+    public CommissionEmployee (String fname, String lname, String ssn, double sales, double rate) {
         super(fname, lname, ssn);
         setGrossSales(sales); 
         setCommissionRate(rate); 
