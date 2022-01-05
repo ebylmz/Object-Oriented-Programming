@@ -3,7 +3,7 @@ package inheritance.Employee;
 public class BasePlusCommissionEmployee extends CommissionEmployee {
     private double _baseSalary;
 
-    BasePlusCommissionEmployee (String fname, String lname, String ssn, double sales, double rate, double baseSalary) {
+    public BasePlusCommissionEmployee (String fname, String lname, String ssn, double sales, double rate, double baseSalary) {
         super(fname, lname, ssn, sales, rate);
         setBaseSalary(baseSalary);    
     }

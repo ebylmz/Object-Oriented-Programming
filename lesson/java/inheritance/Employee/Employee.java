@@ -5,7 +5,7 @@ public abstract class Employee {
     private String _lname;
     private String _ssn;
 
-    Employee (String fname, String lname, String ssn) {
+    public Employee (String fname, String lname, String ssn) {
         _fname = fname; 
         _lname = lname;
         _ssn = ssn;
