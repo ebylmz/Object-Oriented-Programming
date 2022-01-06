@@ -1,2 +1,2 @@
 # Iterable
-HW 6 Inheritance, Templates, STL
+cse241 HW06 Inheritance, Templates, STL
