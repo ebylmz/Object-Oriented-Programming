@@ -1,2 +1,2 @@
 # Peg Solitaire
-CSE 241 assignment
+cse241 HW03
