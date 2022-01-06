@@ -1,2 +1,2 @@
 # BoardGame2D
-CSE 241 - HW5
+cse241 HW05
