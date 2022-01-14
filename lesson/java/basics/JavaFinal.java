@@ -1,3 +1,9 @@
+// referance: https://www.geeksforgeeks.org/final-keyword-in-java/
+
+// final variable to create constant variable
+// final classes cannot be extended
+// final method cannot be overridden
+
 public class JavaFinal {
     static final double PI = 3.141592653589793;
     final int THRESHOLD;
@@ -19,10 +25,23 @@ public class JavaFinal {
     }
 
     public static void main (String[] args) {
+        // final referance variables are a little bit tricky
+        // the referance value cannot change but referanced object can change
         final StringBuilder sb = new StringBuilder("Emirkan");
         System.out.println(sb);
 
         sb.append("Burak");
         System.out.println(sb);
+
+        // arrays are object and objects are always referances
+        final int[] arr = new int[10];
+
+        for (int i = 0; i < arr.length; ++i)
+           arr[i] = 10 * i;
+
+        for (int v : arr)
+            System.out.println(v);
+        
+        // arr = new int[15];  // compiler error
     }
 }
