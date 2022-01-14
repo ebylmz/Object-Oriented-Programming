@@ -1,4 +1,4 @@
-package inheritance.Employee;
+package employee;
 
 public class BasePlusCommissionEmployee extends CommissionEmployee {
     private double _baseSalary;

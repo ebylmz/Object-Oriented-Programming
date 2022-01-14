@@ -1,4 +1,4 @@
-package inheritance.Employee;
+package employee;
 
 public class SalariedEmployee extends Employee {
     private double _weeklySalary;

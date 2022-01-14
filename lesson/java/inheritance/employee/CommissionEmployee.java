@@ -1,4 +1,4 @@
-package inheritance.Employee;
+package employee;
 
 public class CommissionEmployee extends Employee {
     protected double _grossSales;

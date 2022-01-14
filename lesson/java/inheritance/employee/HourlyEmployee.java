@@ -1,4 +1,4 @@
-package inheritance.Employee;
+package employee;
 
 public class HourlyEmployee extends Employee {
     private double _hourlyWage;   // wage per hour 

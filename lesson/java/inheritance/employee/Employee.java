@@ -1,4 +1,6 @@
-package inheritance.Employee;
+// https://www.geeksforgeeks.org/can-we-overload-or-override-static-methods-in-java/
+
+package employee;
 
 public abstract class Employee {
     private String _fname;

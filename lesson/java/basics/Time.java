@@ -44,6 +44,7 @@ public class Time {
         Time t2 = new  Time(12, 42, 59);
         Time t3 = new  Time(16, 2, 19);
         Time t4 = new  Time(0, 1, 46);
+        
         t1.getClass().getName();
         
         System.out.printf("%s - %11s\n", t1.toUniversalString(), t1);
