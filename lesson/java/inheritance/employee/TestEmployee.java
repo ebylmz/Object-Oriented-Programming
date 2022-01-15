@@ -2,7 +2,6 @@ package employee;
 
 public class TestEmployee {
     public static void main (String args[]) {
-        
         Employee e[] = new Employee[4];
         e[0] = new SalariedEmployee("Emirkan Burak", "Yilmaz", "111-11-1111", 800.00);
         e[1] = new HourlyEmployee("Bugs", "Bunny", "222-22-2222", 16.75, 40);
