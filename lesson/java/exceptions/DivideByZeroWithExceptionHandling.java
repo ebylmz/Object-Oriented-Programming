@@ -30,14 +30,7 @@ public class DivideByZeroWithExceptionHandling {
                 System.err.printf("\nException: %s\n", e);
                 System.out.println("Zero is an invalid denominator. Please try again.\n");
             }
-            finally {
-                System.out.println("Finally works");
-                // finally block will be executed even after a return statement in a method
-                // there are some cases finally block won't be executed like System.exit(1) 
-                
-                // usually used for closing the sources
-                scanner.close();
-            }
         } while (!exit);
+        scanner.close();
     }
 }
