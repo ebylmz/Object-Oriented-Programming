@@ -94,7 +94,8 @@ namespace stdGTU {
         catch (out_of_range & e) {
             cerr << e.what() << " Aborted." << endl;
             exit(1);
-        }    }
+        }    
+    }
 
     template<typename T, size_t SIZE>
     void GTUArray<T, SIZE>::fill (const T & val)  {
