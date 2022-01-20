@@ -5,8 +5,8 @@
 // final method cannot be overridden
 
 public class JavaFinal {
-    static final double PI = 3.141592653589793;
-    final int THRESHOLD;
+    public static final double PI = 3.141592653589793;
+    public final int THRESHOLD;
     // final variable to create constant variable
     // When a variable is declared with final keyword, 
     // its value can’t be modified, essentially, a constant.
