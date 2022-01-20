@@ -1,4 +1,4 @@
-package frame.textFieldFrame;
+package frame.textField;
 
 import javax.swing.JFrame;
 

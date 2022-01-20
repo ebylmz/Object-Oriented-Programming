@@ -1,4 +1,4 @@
-package frame.labelFrame;
+package frame.label;
 
 import javax.swing.JFrame;
 
@@ -15,6 +15,7 @@ public class TestLabelFrame {
 
         // pop-up and our program on different threads
         // by setting visible pop-up still open and execute
+        // otherwise it's closed with the java program
         lframe.setVisible(true);
     }
     

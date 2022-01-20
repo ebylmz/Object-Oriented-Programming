@@ -1,4 +1,4 @@
-package frame.labelFrame;
+package frame.label;
 
 import java.awt.FlowLayout; // specifies how components are arranged
 import javax.swing.JFrame; // provides basic window features

@@ -1,4 +1,4 @@
-package frame.textFieldFrame;
+package frame.textField;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
@@ -45,7 +45,7 @@ public class TextFieldFrame extends JFrame {
     }
 
     private class TextFieldHandler implements ActionListener {
-        // abstract method ActionListener.actionPerformed(ActionEvent) must implement
+        // abstract method ActionListener.actionPerformed(ActionEvent) must be implemented
         public void actionPerformed (ActionEvent event) {
             String message = ""; // declare string to display
 
@@ -53,16 +53,15 @@ public class TextFieldFrame extends JFrame {
 
             // user pressed Enter in JTextField textField1            
             if (event.getSource() == tField1)
-                message = "tField1: ";
+                message = String.format("tField1: %s", event.getActionCommand());
             else if (event.getSource() == tField2) 
-                message = "tField2: ";
+                message = String.format("tField2: %s", event.getActionCommand());
             else if (event.getSource() == tField3) 
-                message = "tField3: ";
-            else
-                message = "pField: ";
+                message = String.format("tField3: %s", event.getActionCommand());
+            else if (event.getSource() == pField) 
+                message = String.format("pField: %s", new String(pField.getPassword())); 
+                // use getPassword()
                 
-            message += event.getActionCommand();
-
             // JOptionPane.showMessageDialog(parentComponent, message, title, messageType);
             JOptionPane.showMessageDialog(null, message);    
         }

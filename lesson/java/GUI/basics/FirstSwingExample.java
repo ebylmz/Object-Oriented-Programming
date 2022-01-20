@@ -1,3 +1,5 @@
+package basics;
+
 import javax.swing.*;  
 
 public class FirstSwingExample {  

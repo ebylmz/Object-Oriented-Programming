@@ -1,3 +1,5 @@
+package basics;
+
 import javax.swing.JOptionPane;
 
 public class Addition {
@@ -6,6 +8,7 @@ public class Addition {
         String second = JOptionPane.showInputDialog("Enter second integer");
 
         // it would be better two use Integer object here
+        // because eventually int become Integer with auto-boxing
         int n1 = Integer.parseInt(first);
         int n2 = Integer.parseInt(second);
         int sum = n1 + n2;  
