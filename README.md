@@ -25,3 +25,5 @@
 Polymorphism means “many shapes” in Greek. It means one name many forms. It is further of two types — static and dynamic. Static polymorphism is achieved using method overloading and dynamic polymorphism using method overriding. It is closely related to inheritance. We can write a code that works on the superclass, and it will work with any subclass type as well by overriding.
 
 ![8GySv1U8Kh9nVVyiTqv5cDuWZC7p0uARVeF0](https://user-images.githubusercontent.com/73825254/151648629-ef6984f4-b89b-4d9d-851e-e4ee288db70b.png)
+
+referance : https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7260/#:~:text=The%20four%20principles%20of%20object,scary%20for%20a%20junior%20developer.
