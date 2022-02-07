@@ -23,6 +23,6 @@ int main(void) {
     forEach(v, lambda2);
 
     // capture by value and capture by referance
-    auto lambda3 = [=, &str] (int val) {std::cout << str << "\t" << a << std::endl;};
+    std::function<void(int)> lambda3 = [=, &str] (int val) {std::cout << str << "\t" << a << std::endl;};
     forEach(v, lambda3);
 }
