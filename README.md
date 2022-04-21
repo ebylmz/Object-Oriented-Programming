@@ -1,5 +1,3 @@
-# GTU CSE241 - Object Oriented Programming - Projects & Assignments
-
 ## Principles of OOP
 
 1. Encapsulation
