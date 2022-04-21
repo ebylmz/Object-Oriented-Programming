@@ -5,7 +5,7 @@ JFlags =
 
 muo:
 	$(JC) $(JFlags) $(Packet)/*.java
-	$(R) $(Packet).TestPegSolitaire
+	$(R) $(Packet).Main
 
 javadoc:
 	javadoc -d doc/ $(Packet)/*.java

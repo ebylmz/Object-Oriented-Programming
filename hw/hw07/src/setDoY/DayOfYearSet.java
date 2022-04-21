@@ -52,8 +52,10 @@ public class DayOfYearSet implements Cloneable {
          */
         public  DayOfYear () {this(1, 1);}
 
+        @Override
         public DayOfYear clone () {
             try {
+                // shallow copy works
                 return (DayOfYear) super.clone();
             }
             catch (CloneNotSupportedException e) {
@@ -222,13 +224,22 @@ public class DayOfYearSet implements Cloneable {
          * @param other
          * @return true if two day is equal
          */
-        public boolean equals (DayOfYear other) {
-            return day() == other.day() && month() == other.month();
+        @Override
+        public boolean equals (Object o) {
+            if (this == o)
+                return true;
+            else if (!(o instanceof DayOfYear)) 
+                return false;
+            else {
+                DayOfYear other = (DayOfYear) o;
+                return day() == other.day() && month() == other.month();
+            }
         }
-
+        
         /**
          * Returns date as string in format "mm/dd"
          */
+        @Override
         public String toString () {
             return String.format("%d/%d", _month, _day);
         }
@@ -268,6 +279,7 @@ public class DayOfYearSet implements Cloneable {
         _set = null;
     }
 
+    @Override
     public DayOfYearSet clone () {
         // inherited version: protected Object clone () throws CloneNotSupportedException
         // handle the exception
@@ -295,14 +307,19 @@ public class DayOfYearSet implements Cloneable {
      * @param other
      * @return true equal if two sets elements are equal regardless of the keeping order
      */
-    public boolean equals (DayOfYearSet other) {
-        if (size() != other.size())
-            return false;        
-        
-        for (int i = 0; i < size(); ++i)
-            if (!other.inside(at(i)))
-                return false;
-        return true;
+    @Override
+    public boolean equals (Object o) {
+        if (this == o)
+            return true;
+        else if (!(o instanceof DayOfYearSet))
+            return false;
+        else {
+            var other = (DayOfYearSet) o;
+            for (int i = 0; i < size(); ++i)
+                if (! other.inside(at(i)))
+                    return false;
+            return true;
+        }
     }
 
     /**
