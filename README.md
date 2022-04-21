@@ -1,4 +1,4 @@
-## Principles of OOP
+# Principles of OOP
 
 1. Encapsulation
 
@@ -14,4 +14,4 @@
 
 4. Polymorphism
 
-Polymorphism means “many shapes” in Greek. It means one name many forms. It is further of two types — static and dynamic. Static polymorphism is achieved using method overloading and dynamic polymorphism using method overriding. It is closely related to inheritance. We can write a code that works on the superclass, and it will work with any subclass type as well by overriding.
+* Polymorphism means “many shapes” in Greek. It means one name many forms. It is further of two types — static and dynamic. Static polymorphism is achieved using method overloading and dynamic polymorphism using method overriding. It is closely related to inheritance. We can write a code that works on the superclass, and it will work with any subclass type as well by overriding.
