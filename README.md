@@ -1,4 +1,4 @@
-# GTU cse241 - Object Oriented Programming 
+# GTU CSE241 - Object Oriented Programming - Projects & Assignments
 
 ## Principles of OOP
 
